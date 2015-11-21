@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719115626) do
+ActiveRecord::Schema.define(version: 20150914171954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+    t.integer  "category_id"
+  end
 
   create_table "participations", force: :cascade do |t|
     t.integer  "student_id"
@@ -40,7 +55,6 @@ ActiveRecord::Schema.define(version: 20150719115626) do
     t.datetime "updated_at",      null: false
   end
 
-  add_index "subject_item_notes", ["student_id"], name: "index_subject_item_notes_on_student_id", using: :btree
   add_index "subject_item_notes", ["subject_item_id"], name: "index_subject_item_notes_on_subject_item_id", using: :btree
 
   create_table "subject_items", force: :cascade do |t|
@@ -59,6 +73,16 @@ ActiveRecord::Schema.define(version: 20150719115626) do
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
+
+  create_table "user_categories", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "user_categories", ["category_id"], name: "index_user_categories_on_category_id", using: :btree
+  add_index "user_categories", ["user_id"], name: "index_user_categories_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -80,7 +104,7 @@ ActiveRecord::Schema.define(version: 20150719115626) do
 
   add_foreign_key "participations", "students"
   add_foreign_key "participations", "subject_items"
-  add_foreign_key "subject_item_notes", "students"
   add_foreign_key "subject_item_notes", "subject_items"
   add_foreign_key "subject_items", "teachers"
+  add_foreign_key "user_categories", "categories"
 end

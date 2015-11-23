@@ -1,0 +1,1 @@
+https://travis-ci.org/siaw23/wroclaw-ror-workshops-2015-december.svg

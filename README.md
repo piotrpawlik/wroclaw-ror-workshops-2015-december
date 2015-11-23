@@ -1,1 +1,1 @@
-https://travis-ci.org/siaw23/wroclaw-ror-workshops-2015-december.svg
+[![Build Status](https://travis-ci.org/siaw23/wroclaw-ror-workshops-2015-december.svg)]

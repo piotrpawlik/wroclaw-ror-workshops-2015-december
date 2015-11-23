@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     get :subjects
   end
 
-  resources :teachers
+  #edit later to only allow actions specified in specs.
+  resources :teachers, :visitors
 end

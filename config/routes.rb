@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   end
 
   #edit later to only allow actions specified in specs.
-  resources :teachers, :visitors
+  resources :teachers, :visitors, :report_subjects
+
+  root 'visitors#index'
 end

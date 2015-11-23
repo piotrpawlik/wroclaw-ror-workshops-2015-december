@@ -4,5 +4,10 @@ class StudentDecorator < BaseDecorator
   end
 
   def avg_notes(subject_item)
+  	if subject_item = 0
+  		sprintf('%.2f', subject_item)
+  	else
+
+  	end
   end
 end

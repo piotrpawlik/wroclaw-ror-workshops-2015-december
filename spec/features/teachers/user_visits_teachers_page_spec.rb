@@ -6,8 +6,8 @@ feature 'User visits teachers page'  do
 
   background do
     sign_in
-    expect(page).to have_content 'Logout'
     visit teachers_path
+    expect(page).to have_content 'Logout'
   end
 
   scenario 'should see teachers list' do

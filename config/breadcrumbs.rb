@@ -8,7 +8,7 @@ crumb :student do |student|
 end
 
 crumb :students do
-  link t('navbar.students'), student_subjects_path
+  link t('navbar.students'), students_path
 end
 
 crumb :student_subjects do |student|

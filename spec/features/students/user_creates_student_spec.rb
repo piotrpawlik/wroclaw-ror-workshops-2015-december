@@ -3,9 +3,10 @@ require 'spec_helper'
 feature 'User creates student' do
   background do
     sign_in
-    expect(page).to have_content 'Logout'
+    #save_and_open_page
     visit students_path
     click_on 'Add new one'
+    expect(page).to have_content 'Logout'
   end
 
   scenario 'with valid input' do

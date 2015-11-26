@@ -8,6 +8,7 @@ feature 'User visits students page'  do
     sign_in
     expect(page).to have_content 'Logout'
     visit students_path
+
   end
 
   scenario 'should see students list' do

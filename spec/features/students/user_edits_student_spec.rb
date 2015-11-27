@@ -32,6 +32,7 @@ feature 'User edits student' do
 
   scenario 'by assigning subject item' do
     visit report_subjects_path
+    #save_and_open_page
     expect(page).to have_no_content 'Jan Abacki'
 
     visit students_path

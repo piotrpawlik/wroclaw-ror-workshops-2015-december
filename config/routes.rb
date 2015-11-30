@@ -1,21 +1,17 @@
 Rails.application.routes.draw do
-	devise_for :users
-	get '/subjects', :controller => 'reports', :action => 'subjects'
+  devise_for :users
 
   resources :students do
     get :subjects
   end
 
-  #edit later to only allow actions specified in specs.
-  resources :visitors, :report_subjects, :teacher_subjects
-
   resources :teachers do
-  	get :subjects
+    get :subjects
   end
 
   namespace :reports, as: :report do
-  	get :subjects
+    get :subjects
   end
 
-  root 'visitors#index'
+  root to: 'visitors#index'
 end

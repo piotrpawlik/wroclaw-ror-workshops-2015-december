@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20151123093524) do
   create_table "subject_item_notes", force: :cascade do |t|
     t.integer  "value"
     t.integer  "subject_item_id"
+    t.integer  "student_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.integer  "student_id"

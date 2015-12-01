@@ -1,6 +1,6 @@
 puts "Seeds: start"
 TEACHER_TITLES = %w(Dr. Prof. TA)
-SUBJECTS = %w(Art Music Science Mathematics Polish English)
+SUBJECTS = %w(Art Music Science Mathematics Polish English).shuffle
 User.create!(email: 'admin@admin.com',password: 'adminadmin')
 
 3.times do
@@ -15,7 +15,7 @@ teachers = Teacher.all
 
 5.times do
   SubjectItem.create!(
-    title: SUBJECTS.sample, #Faker::Lorem.sentence,
+    title: SUBJECTS.pop, #Faker::Lorem.sentence,
     teacher: teachers.sample
   )
 end

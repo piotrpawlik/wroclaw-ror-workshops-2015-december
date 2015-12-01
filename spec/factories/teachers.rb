@@ -1,3 +1,4 @@
+require 'faker'
 FactoryGirl.define do
   factory :teacher do
     academic_title { Teacher::TITLES.sample }

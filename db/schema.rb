@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 20151123093524) do
     t.integer  "student_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.integer  "student_id"
   end
 
   add_index "subject_item_notes", ["subject_item_id"], name: "index_subject_item_notes_on_subject_item_id", using: :btree
